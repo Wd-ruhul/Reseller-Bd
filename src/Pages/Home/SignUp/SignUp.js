@@ -47,7 +47,29 @@ const {createUser} = useContext(AuthContext)
               placeholder="Enter Password"
               className="input input-bordered input-primary w-full  mb-5"
             />
-
+            <h2>Category:</h2>
+            <div className="flex justify-around mb-5">
+              <label className="label cursor-pointer ">
+                <span className="label-text mr-5">Buyer</span>
+                <input
+                  {...register("category")}
+                  type="radio"
+                  value="Buyer"
+                  className="radio checked:bg-red-500"
+                  checked
+                />
+              </label>
+              <label className="label cursor-pointer">
+                <span className="label-text mr-5">seller</span>
+                <input
+                  {...register("category")}
+                  type="radio"
+                  value="seller"
+                  className="radio checked:bg-blue-500"
+                  checked
+                />
+              </label>
+            </div>
             <input className="btn btn-primary w-full mb-5" type="submit" />
           </form>
           <div className="divider">OR</div>
