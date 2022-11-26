@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider";
 
 const Login = () => {
@@ -9,6 +10,10 @@ const Login = () => {
   const { register, handleSubmit } = useForm();
   const [data, setData] = useState("");
 
+   const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
     const handleSignIn = (data) => {
       console.log("data", data);
       logIn(data.email, data.password)
@@ -16,6 +21,7 @@ const Login = () => {
           const user = result.user;
 
           console.log(user);
+          navigate(from, { replace: true });
         })
 
         .catch((error) => console.log(error));
