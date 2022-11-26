@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider";
 
 const Login = () => {
@@ -65,6 +65,9 @@ const Login = () => {
           >
             Contuine With Google
           </button>
+          <p>
+            Did not have an account ? <Link className="text-primary" to="/signup">please Sign Up</Link>
+          </p>
         </div>
       </div>
     </div>

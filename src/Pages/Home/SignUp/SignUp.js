@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../../Context/AuthProvider'
+import { Link } from 'react-router-dom';
 
 
 const SignUp = () => {
@@ -72,10 +73,14 @@ const {createUser} = useContext(AuthContext)
             </div>
             <input className="btn btn-primary w-full mb-5" type="submit" />
           </form>
-          <div className="divider">OR</div>
-          <button className="w-full btn btn-outline">
-            Contuine With Google
-          </button>
+          
+          
+          <p>
+            Already  have an account ?{" "}
+            <Link className="text-primary" to="/login">
+              please Sign In
+            </Link>
+          </p>
         </div>
       </div>
     </div>
