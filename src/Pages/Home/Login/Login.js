@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider";
 
 const Login = () => {
-  const { logIn } = useContext(AuthContext);
+  const { logIn, loginWithGoogle } = useContext(AuthContext);
 
   const { register, handleSubmit } = useForm();
   const [data, setData] = useState("");
@@ -25,7 +25,18 @@ const Login = () => {
         })
 
         .catch((error) => console.log(error));
-    };
+  };
+   const handleGoogleSignIn = () => {
+     loginWithGoogle()
+       .then((result) => {
+         const user = result.user;
+         console.log("🚀 ~ file: Login.js ~ line 36 ~ .then ~ user", user);
+         navigate(from, { replace: true });
+       })
+       .catch((error) => {
+         console.error(error);
+       });
+   };
 
   return (
     <div>
@@ -48,7 +59,10 @@ const Login = () => {
             <input className="btn btn-primary w-full mb-5" type="submit" />
           </form>
           <div className="divider">OR</div>
-          <button className="w-full btn btn-outline">
+          <button
+            onClick={handleGoogleSignIn}
+            className="w-full btn btn-outline"
+          >
             Contuine With Google
           </button>
         </div>
