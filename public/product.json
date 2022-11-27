@@ -1,0 +1,21 @@
+[
+  {
+    "category": "Vehicles",
+    "id": "v01",
+
+    "img": "https://i.ibb.co/L9Z9tWp/icons8-courier-lorry-96.png"
+  },
+
+  {
+    "category": "Mobile",
+    "id": "m01",
+
+    "img": "https://i.ibb.co/MRM8GQC/icons8-mobile-phone-96.png"
+  },
+   {
+    "category": "Electronics",
+    "id": "e01",
+
+    "img": "https://i.ibb.co/gVCs7SV/icons8-laptop-with-cursor-64.png"
+  }
+]
