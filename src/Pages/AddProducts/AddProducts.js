@@ -18,6 +18,10 @@ const AddProducts = () => {
     const purchaseYear = data.purchaseyear;
     const img = data.imgurl;
     const condition = data.condition
+      let today = new Date();
+
+      // get the date and time
+      let now = today.toLocaleString();
 
     const products = {
  
@@ -30,6 +34,7 @@ const AddProducts = () => {
         purchaseYear,
         img,
         condition,
+        post_date: now,
       
     };
     console.log(products)
