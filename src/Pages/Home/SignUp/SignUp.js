@@ -16,6 +16,7 @@ const {createUser} = useContext(AuthContext)
     console.log('data', data)
        createUser(data.email, data.password)
          .then((result) => {
+           saveUser(data.name, data.email,data.category);
            const user = result.user;
 
            console.log(user);
@@ -24,7 +25,24 @@ const {createUser} = useContext(AuthContext)
          .catch((error) => console.log(error));
   };
 
-  
+   const saveUser = (name, email, category) => {
+     const user = { name, email, category };
+
+     fetch("http://localhost:5000/users", {
+       method: "POST",
+       headers: {
+         "content-type": "application/json",
+       },
+       body: JSON.stringify(user),
+     })
+       .then((res) => res.json())
+       .then((data) => {
+         console.log(data);
+       });
+   };
+
+
+
   return (
     <div>
       <div className="flex justify-center">
@@ -61,7 +79,7 @@ const {createUser} = useContext(AuthContext)
                 />
               </label>
               <label className="label cursor-pointer">
-                <span className="label-text mr-5">seller</span>
+                <span className="label-text mr-5">Seller</span>
                 <input
                   {...register("category")}
                   type="radio"
