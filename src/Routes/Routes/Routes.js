@@ -6,6 +6,7 @@ import Home from "../../Pages/Home/Home/Home"
 import Login from "../../Pages/Home/Login/Login";
 import SignUp from "../../Pages/Home/SignUp/SignUp";
 import Products from "../../Pages/Products/Products";
+import Blog from "../../Pages/Blog/Blog"
 
 
 
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp></SignUp>,
+      },
+       {
+        path: "/blog",
+        element: <Blog></Blog>
       },
       {
         path: "/category",
