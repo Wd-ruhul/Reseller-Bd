@@ -7,6 +7,7 @@ import Login from "../../Pages/Home/Login/Login";
 import SignUp from "../../Pages/Home/SignUp/SignUp";
 import Products from "../../Pages/Products/Products";
 import Blog from "../../Pages/Blog/Blog"
+import NotFound from "../../Pages/NotFound/NotFound";
 
 
 
@@ -27,9 +28,9 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <SignUp></SignUp>,
       },
-       {
+      {
         path: "/blog",
-        element: <Blog></Blog>
+        element: <Blog></Blog>,
       },
       {
         path: "/category",
@@ -46,6 +47,11 @@ const router = createBrowserRouter([
         element: <AddProducts></AddProducts>,
       },
     ],
+  },
+
+  {
+    path: "*",
+    element: <NotFound></NotFound>
   },
 ]);
 
