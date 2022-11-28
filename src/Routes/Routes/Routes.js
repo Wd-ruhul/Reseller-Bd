@@ -8,6 +8,10 @@ import SignUp from "../../Pages/Home/SignUp/SignUp";
 import Products from "../../Pages/Products/Products";
 import Blog from "../../Pages/Blog/Blog"
 import NotFound from "../../Pages/NotFound/NotFound";
+import PrivateRoute from '../PrivateRoute/PrivateRoute'
+import DashboardMain from "../../Layout/DashboardMain/DashboardMain";
+import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
+import MyOrder from "../../Pages/Dashboard/MyOrder/MyOrder";
 
 
 
@@ -50,8 +54,27 @@ const router = createBrowserRouter([
   },
 
   {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardMain></DashboardMain>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>,
+      },
+      {
+        path: "/dashboard/myorder",
+        element: <MyOrder></MyOrder>,
+      },
+    ],
+  },
+
+  {
     path: "*",
-    element: <NotFound></NotFound>
+    element: <NotFound></NotFound>,
   },
 ]);
 

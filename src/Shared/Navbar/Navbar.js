@@ -20,11 +20,14 @@ const { user, logOut } = useContext(AuthContext);
       <li>
         <Link to="/signup">Sign Up</Link>
       </li>
-     
+
       <li>
         <Link to="/blog">Blog</Link>
       </li>
-  
+      <li>
+        <Link to="/dashboard">Dashboard</Link>
+      </li>
+
       {user?.uid ? (
         <li>
           <button onClick={handleLogOut}>Sign Out</button>
@@ -33,8 +36,7 @@ const { user, logOut } = useContext(AuthContext);
         <li>
           <Link to="/login">Login</Link>
         </li>
-       )}
-
+      )}
     </React.Fragment>
   );
   return (

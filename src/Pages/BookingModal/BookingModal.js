@@ -6,6 +6,7 @@ const BookingModal = ({ modalProduct, setModalProduct }) => {
   const { product_name, soldprice, img } = modalProduct;
   const { user } = useContext(AuthContext);
   const image = img;
+  const title = product_name;
   const handleModalForm = (event) => {
     event.preventDefault();
 
@@ -23,7 +24,7 @@ const BookingModal = ({ modalProduct, setModalProduct }) => {
     // console.log(date,slot,name,email,phone)
     const booking = {
       bookingDate: date,
-
+      title,
       name,
       email,
       phone,
