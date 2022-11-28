@@ -23,7 +23,9 @@ const Products = () => {
         ))}
       </div>
       {modalProduct && (
-        <BookingModal modalProduct={modalProduct}></BookingModal>
+        <BookingModal modalProduct={modalProduct}
+        setModalProduct={setModalProduct}
+        ></BookingModal>
       )}
     </section>
   );
