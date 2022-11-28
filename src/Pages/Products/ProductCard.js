@@ -1,8 +1,8 @@
 import React from 'react';
 
-const ProductCard = ({product}) => {
+const ProductCard = ({ product, setModalProduct }) => {
   const {
-   product_name,
+    product_name,
     orginal_price,
     soldprice,
     number,
@@ -30,7 +30,13 @@ const ProductCard = ({product}) => {
         </div>
         <p>Seller :</p>
         <div className="card-actions">
-          <button className="btn btn-primary">Book Now</button>
+          <label
+            htmlFor="option-modal"
+            className="btn btn-primary"
+            onClick={() => setModalProduct(product)}
+          >
+            Book Now
+          </label>
         </div>
       </div>
     </div>

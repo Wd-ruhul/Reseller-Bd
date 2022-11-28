@@ -7,6 +7,7 @@ import {
   signInWithPopup,
   onAuthStateChanged,
   GoogleAuthProvider,
+   signOut,
 
 } from "firebase/auth";
 import app from './../Firebase/Firebase.config';
@@ -36,11 +37,13 @@ const AuthProvider = ({ children }) => {
      return signInWithPopup(auth, googleProvider);
    };
 
-  
+   const logOut = () => {
+     return signOut(auth);
+   };
   useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (currentUeser) => {
+    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log("user Observing");
-      setUser(currentUeser);
+      setUser(currentUser);
       setLoading(false);
     });
     return () => unSubscribe();
@@ -51,6 +54,9 @@ const AuthProvider = ({ children }) => {
      createUser,
      logIn,
      loginWithGoogle,
+     logOut,
+     user,
+     loading,
    };
   
   return (

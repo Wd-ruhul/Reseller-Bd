@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
   const { logIn, loginWithGoogle } = useContext(AuthContext);
@@ -19,7 +20,7 @@ const Login = () => {
       logIn(data.email, data.password)
         .then((result) => {
           const user = result.user;
-
+          toast("Successfully Sing In ");
           console.log(user);
           navigate(from, { replace: true });
         })
@@ -46,12 +47,12 @@ const Login = () => {
 
           <form onSubmit={handleSubmit(handleSignIn)}>
             <input
-              {...register("email")}
+              {...register("email", { required: true })}
               placeholder="Enter Email"
               className="input input-bordered input-primary w-full  mb-5"
             />
             <input
-              {...register("password")}
+              {...register("password", { required: true })}
               placeholder="Enter Password"
               className="input input-bordered input-primary w-full  mb-5"
             />
@@ -66,7 +67,10 @@ const Login = () => {
             Contuine With Google
           </button>
           <p>
-            Did not have an account ? <Link className="text-primary" to="/signup">please Sign Up</Link>
+            Did not have an account ?{" "}
+            <Link className="text-primary" to="/signup">
+              please Sign Up
+            </Link>
           </p>
         </div>
       </div>

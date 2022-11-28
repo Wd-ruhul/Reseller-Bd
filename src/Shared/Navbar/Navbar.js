@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider";
 
 
 const Navbar = () => {
-
+const { user, logOut } = useContext(AuthContext);
+   const handleLogOut = () => {
+     logOut()
+       .then(() => {})
+       .catch((error) => error);
+   };
 
 
   const linkItems = (
@@ -14,24 +20,20 @@ const Navbar = () => {
       <li>
         <Link to="/signup">Sign Up</Link>
       </li>
-      <li>
-        <Link to="/login">Login</Link>
-      </li>
+     
       <li>
         <Link to="/blog">Blog</Link>
       </li>
   
-      {
-        // user?.uid ? (
-      //   <li>
-      //     <button onClick={handleLogOut}>Sign Out</button>
-      //   </li>
-      // ) : (
-      //   <li>
-      //     <Link to="/login">Login</Link>
-      //   </li>
-      //  )
-      }
+      {user?.uid ? (
+        <li>
+          <button onClick={handleLogOut}>Sign Out</button>
+        </li>
+      ) : (
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+       )}
 
     </React.Fragment>
   );

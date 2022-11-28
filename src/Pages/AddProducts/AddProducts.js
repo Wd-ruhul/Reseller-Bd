@@ -64,46 +64,46 @@ const AddProducts = () => {
             <div className="grid lg:grid-cols-2 gap-3">
               <select
                 className="select select-primary w-full mb-5 "
-                {...register("id")}
+                {...register("id", { required: true })}
               >
-                <option>Select Your Product Category</option>
+                <option disabled selected>Select Your Product Category</option>
                 <option value="m01">Mobile</option>
                 <option value="e01">Electronics</option>
                 <option value="v01">Vehicles</option>
               </select>
               <input
-                {...register("name")}
+                {...register("name", { required: true })}
                 placeholder="Enter product Name"
                 className="input input-bordered input-primary w-full  mb-5"
               />
 
               <input
-                {...register("orginalprice")}
+                {...register("orginalprice", { required: true })}
                 placeholder="Enter Orginal Product Price"
                 className="input input-bordered input-primary w-full  mb-5"
               />
               <input
-                {...register("soldprice")}
+                {...register("soldprice", { required: true })}
                 placeholder="Enter sold Price"
                 className="input input-bordered input-primary w-full  mb-5"
               />
               <input
-                {...register("mobile")}
+                {...register("mobile", { required: true })}
                 placeholder="Enter Mobile Number"
                 className="input input-bordered input-primary w-full  mb-5"
               />
               <input
-                {...register("location")}
+                {...register("location", { required: true })}
                 placeholder="Enter Location"
                 className="input input-bordered input-primary w-full  mb-5"
               />
               <input
-                {...register("purchaseyear")}
+                {...register("purchaseyear", { required: true })}
                 placeholder="Enter Year of purchase"
                 className="input input-bordered input-primary w-full  mb-5"
               />
               <input
-                {...register("imgurl")}
+                {...register("imgurl", { required: true })}
                 placeholder="Enter Product Image Url"
                 className="input input-bordered input-primary w-full  mb-5"
               />

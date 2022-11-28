@@ -51,18 +51,18 @@ const {createUser} = useContext(AuthContext)
 
           <form onSubmit={handleSubmit(handleSignUp)}>
             <input
-              {...register("name")}
+              {...register("name", { required: true })}
               placeholder="Enter Name"
               className="input input-bordered input-primary w-full  mb-5"
             />
 
             <input
-              {...register("email")}
+              {...register("email", { required: true })}
               placeholder="Enter Email"
               className="input input-bordered input-primary w-full  mb-5"
             />
             <input
-              {...register("password")}
+              {...register("password", { required: true })}
               placeholder="Enter Password"
               className="input input-bordered input-primary w-full  mb-5"
             />
@@ -91,10 +91,9 @@ const {createUser} = useContext(AuthContext)
             </div>
             <input className="btn btn-primary w-full mb-5" type="submit" />
           </form>
-          
-          
+
           <p>
-            Already  have an account ?{" "}
+            Already have an account ?{" "}
             <Link className="text-primary" to="/login">
               please Sign In
             </Link>
