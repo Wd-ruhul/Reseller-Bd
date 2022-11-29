@@ -81,7 +81,7 @@ const { user, logOut } = useContext(AuthContext);
           </ul>
         </div>
         <Link className="btn btn-ghost normal-case text-xl">
-          Doctors Portal
+          <span className="text-primary mr-2">RESELLER</span> <p>BD</p>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
