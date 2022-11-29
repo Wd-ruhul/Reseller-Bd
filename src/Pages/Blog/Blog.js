@@ -26,7 +26,8 @@ const Blog = () => {
     },
   ];
   return (
-    <section>
+    <section className='mb-8 mt-5'>
+      
       <div className='grid lg:grid-cols-2 gap-5'>
         {datas.map((data) => (
           <BlogCard key={data.id} data={data}></BlogCard>

@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
+import login from "../../../Assets/image/login.jpg"
 
 const Login = () => {
   const { logIn, loginWithGoogle } = useContext(AuthContext);
@@ -40,7 +41,7 @@ const Login = () => {
    };
 
   return (
-    <div>
+    <section className="p-5" style={{ background: `url(${login})` }}>
       <div className="flex justify-center">
         <div className="w-96">
           <h2 className="text-primary text-2xl mb-5">Sing In</h2>
@@ -66,7 +67,7 @@ const Login = () => {
           >
             Contuine With Google
           </button>
-          <p>
+          <p className="mt-5">
             Did not have an account ?{" "}
             <Link className="text-primary" to="/signup">
               please Sign Up
@@ -74,7 +75,7 @@ const Login = () => {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

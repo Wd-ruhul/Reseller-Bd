@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import toast, { Toaster } from "react-hot-toast";
+import { AuthContext } from "../../../Context/AuthProvider";
 
 const AddProducts = () => {
+
+  const {user} = useContext(AuthContext)
   const { register, handleSubmit } = useForm();
   const [data, setData] = useState("");
 
+  const email = user.email
+
+
+
   const handleAddProduct = (data) => {
-    const category = data.category;
+    const id = data.id;
     const name = data.name;
     const orginalprice = data.orginalprice;
     const soldprice = data.soldprice;
@@ -16,19 +24,23 @@ const AddProducts = () => {
     const purchaseYear = data.purchaseyear;
     const img = data.imgurl;
     const condition = data.condition;
+    let today = new Date();
+
+    // get the date and time
+    let now = today.toLocaleString();
 
     const products = {
-      category,
-      data: {
-        product_name: name,
-        orginal_price: orginalprice,
-        soldprice,
-        number: mobile,
-        location,
-        purchaseYear,
-        img,
-        condition,
-      },
+      id,
+      email,
+      product_name: name,
+      orginal_price: orginalprice,
+      soldprice,
+      number: mobile,
+      location,
+      purchaseYear,
+      img,
+      condition,
+      post_date: now,
     };
     console.log(products);
 
@@ -42,6 +54,7 @@ const AddProducts = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        toast("Product Successfully Added")
       });
   };
 
@@ -55,46 +68,48 @@ const AddProducts = () => {
             <div className="grid lg:grid-cols-2 gap-3">
               <select
                 className="select select-primary w-full mb-5 "
-                {...register("category")}
+                {...register("id", { required: true })}
               >
-                <option>Select Your Product Category</option>
-                <option value="Mobile">Mobile</option>
-                <option value="Electronics">Electronics</option>
-                <option value="Vehicles">Vehicles</option>
+                <option >
+                  Select Your Product Category
+                </option>
+                <option value="m01">Mobile</option>
+                <option value="e01">Electronics</option>
+                <option value="v01">Vehicles</option>
               </select>
               <input
-                {...register("name")}
+                {...register("name", { required: true })}
                 placeholder="Enter product Name"
                 className="input input-bordered input-primary w-full  mb-5"
               />
 
               <input
-                {...register("orginalprice")}
+                {...register("orginalprice", { required: true })}
                 placeholder="Enter Orginal Product Price"
                 className="input input-bordered input-primary w-full  mb-5"
               />
               <input
-                {...register("soldprice")}
+                {...register("soldprice", { required: true })}
                 placeholder="Enter sold Price"
                 className="input input-bordered input-primary w-full  mb-5"
               />
               <input
-                {...register("mobile")}
+                {...register("mobile", { required: true })}
                 placeholder="Enter Mobile Number"
                 className="input input-bordered input-primary w-full  mb-5"
               />
               <input
-                {...register("location")}
+                {...register("location", { required: true })}
                 placeholder="Enter Location"
                 className="input input-bordered input-primary w-full  mb-5"
               />
               <input
-                {...register("purchaseyear")}
+                {...register("purchaseyear", { required: true })}
                 placeholder="Enter Year of purchase"
                 className="input input-bordered input-primary w-full  mb-5"
               />
               <input
-                {...register("imgurl")}
+                {...register("imgurl", { required: true })}
                 placeholder="Enter Product Image Url"
                 className="input input-bordered input-primary w-full  mb-5"
               />

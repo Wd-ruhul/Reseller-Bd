@@ -2,12 +2,12 @@ import React from 'react';
 
 const About = () => {
   return (
-    <section>
+    <section className='mb-5'>
       <div
         tabIndex={0}
         className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box"
       >
-        <div className="collapse-title text-xl font-medium">
+        <div className="collapse-title text-xl font-bold">
           About Reseller Bd The Largest Marketplace in Bangladesh!
         </div>
         <div className="collapse-content">
@@ -30,10 +30,9 @@ const About = () => {
             desired location. To buy online, users easily can reach their
             desired products through filtering options.
           </p>
-
-          <div className='flex justify-center'>
+          <h2 className="font-bold">Only Four Steps To Get Product</h2>
+          <div className="flex justify-center">
             <div>
-              <h2>Only Four Steps To Get Product</h2>
               <ul className="steps">
                 <li className="step step-primary">Register</li>
                 <li className="step step-primary">Choose plan</li>

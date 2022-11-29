@@ -15,12 +15,16 @@ const { data: category = [], refetch } = useQuery({
 
 
   return (
-    <section>
-      <h2>category:{category.length}</h2>
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
+    <section className="mb-5 mt-5">
+      <h2  className="text-2xl font-bold ">
+        BROWSE ITEM BY CATEGORY
+      </h2>
+      <div  className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
         {category.map((eachCategory) => (
-          <CategoryCard key={eachCategory.id}
-            eachCategory={eachCategory}></CategoryCard>
+          <CategoryCard
+            key={eachCategory.id}
+            eachCategory={eachCategory}
+          ></CategoryCard>
         ))}
       </div>
     </section>

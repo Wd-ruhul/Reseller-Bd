@@ -1,11 +1,8 @@
 import React from 'react';
+import login from '../../../Assets/image/login.jpg';
 
 const Dashboard = () => {
-  return (
-    <div>
-      dashboard
-    </div>
-  );
+  return <section style={{ background: `url(${login})` }}></section>;
 };
 
 export default Dashboard;

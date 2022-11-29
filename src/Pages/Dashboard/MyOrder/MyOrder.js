@@ -26,7 +26,7 @@ const { data: bookingg = [] } = useQuery({
 
   return (
     <div>
-      <h2 className="3xl">My Appointment </h2>
+      <h2 className="text-3xl text-primary">My Orders </h2>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>

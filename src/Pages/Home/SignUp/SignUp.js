@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../../Context/AuthProvider'
 import { Link } from 'react-router-dom';
+import login from "../../../Assets/image/login.jpg";
 
 
 const SignUp = () => {
@@ -44,7 +45,7 @@ const {createUser} = useContext(AuthContext)
 
 
   return (
-    <div>
+    <section className="p-5" style={{ background: `url(${login})` }}>
       <div className="flex justify-center">
         <div className="w-96">
           <h2 className="text-primary text-2xl mb-5">Sign Up</h2>
@@ -100,7 +101,7 @@ const {createUser} = useContext(AuthContext)
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
