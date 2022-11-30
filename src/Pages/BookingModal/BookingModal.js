@@ -34,7 +34,7 @@ const BookingModal = ({ modalProduct, setModalProduct }) => {
     };
     console.log(booking);
 
-    fetch("http://localhost:5000/booking", {
+    fetch("https://assignment-twelve-server-sigma.vercel.app/booking", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -44,7 +44,7 @@ const BookingModal = ({ modalProduct, setModalProduct }) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        toast("Product Booked")
+        toast("Product Booked");
         setModalProduct(null);
       });
   };

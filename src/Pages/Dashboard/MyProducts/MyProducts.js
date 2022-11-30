@@ -8,7 +8,7 @@ const MyProducts = () => {
 
   const { user } = useContext(AuthContext);
 
-  const url = `http://localhost:5000/myproducts?email=${user?.email}`;
+  const url = `https://assignment-twelve-server-sigma.vercel.app/myproducts?email=${user?.email}`;
 
   // useEffect(() => {
   //   fetch(url)

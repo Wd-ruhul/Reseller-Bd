@@ -6,7 +6,7 @@ import  Link from "react-router-dom";
 const MyOrder = () => {
   const { user } = useContext(AuthContext);
 
-const url = `http://localhost:5000/bookingg?email=${user?.email}`;
+const url = `https://assignment-twelve-server-sigma.vercel.app/bookingg?email=${user?.email}`;
 
 // useEffect(() => {
 //   fetch(url)

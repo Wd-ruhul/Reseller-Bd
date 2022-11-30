@@ -50,7 +50,7 @@ const AddProducts = () => {
     };
     console.log(products);
 
-    fetch("http://localhost:5000/addproduct", {
+    fetch("https://assignment-twelve-server-sigma.vercel.app/addproduct", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -60,8 +60,8 @@ const AddProducts = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        toast("Product Successfully Added")
-      
+        toast("Product Successfully Added");
+
         navigate(from, { replace: true });
       });
   };

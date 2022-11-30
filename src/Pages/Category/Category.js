@@ -7,7 +7,7 @@ const Category = () => {
 const { data: category = [], refetch } = useQuery({
   queryKey: ["category"],
   queryFn: async () => {
-    const res = await fetch(`http://localhost:5000/category`);
+    const res = await fetch(`https://assignment-twelve-server-sigma.vercel.app/category`);
     const data = await res.json();
     return data;
   },

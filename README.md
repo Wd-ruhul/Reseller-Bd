@@ -1,5 +1,5 @@
-adminEmail: \<ruhul.wd@gmail.com\>
-adminPassword: \<123456\>
+adminEmail: ruhul.wd@gmail.com
+adminPassword: 123456
 
 
 
