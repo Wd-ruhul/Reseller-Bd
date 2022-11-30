@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../../Context/AuthProvider'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from "../../../Assets/image/login.jpg";
 
 
@@ -12,6 +12,10 @@ const {createUser} = useContext(AuthContext)
 
   const { register, handleSubmit } = useForm();
   const [data, setData] = useState("");
+
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/";
 
   const handleSignUp = (data) => {
     console.log('data', data)
@@ -39,6 +43,7 @@ const {createUser} = useContext(AuthContext)
        .then((res) => res.json())
        .then((data) => {
          console.log(data);
+         navigate(from, { replace: true });
        });
    };
 

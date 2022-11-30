@@ -12,7 +12,7 @@ const Products = () => {
 
   return (
     <section>
-      products
+    
       <div className="grid lg:grid-cols-2 gap-3 ">
         {products.map((product) => (
           <ProductCard

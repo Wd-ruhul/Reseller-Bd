@@ -3,12 +3,18 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import { AuthContext } from "../../../Context/AuthProvider";
+import {Navigate ,  useLocation, useNavigate } from "react-router-dom";
+
 
 const AddProducts = () => {
 
   const {user} = useContext(AuthContext)
   const { register, handleSubmit } = useForm();
   const [data, setData] = useState("");
+
+    const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/dashboard/myproduct";
 
   const email = user.email
 
@@ -55,6 +61,8 @@ const AddProducts = () => {
       .then((data) => {
         console.log(data);
         toast("Product Successfully Added")
+      
+        navigate(from, { replace: true });
       });
   };
 

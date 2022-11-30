@@ -7,7 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 import login from "../../../Assets/image/login.jpg"
 
 const Login = () => {
-  const { logIn, loginWithGoogle } = useContext(AuthContext);
+  const {user, logIn, loginWithGoogle } = useContext(AuthContext);
 
   const { register, handleSubmit } = useForm();
   const [data, setData] = useState("");
@@ -33,12 +33,31 @@ const Login = () => {
        .then((result) => {
          const user = result.user;
          console.log("🚀 ~ file: Login.js ~ line 36 ~ .then ~ user", user);
+         saveUser(user.displayName,user.email);
          navigate(from, { replace: true });
        })
        .catch((error) => {
          console.error(error);
        });
    };
+
+     const saveUser = (name, email) => {
+     const user = { name, email, category:"Buyer" };
+
+     fetch("http://localhost:5000/gusers", {
+       method: "POST",
+       headers: {
+         "content-type": "application/json",
+       },
+       body: JSON.stringify(user),
+     })
+       .then((res) => res.json())
+       .then((data) => {
+         console.log(data);
+         navigate(from, { replace: true });
+       });
+   };
+
 
   return (
     <section className="p-5" style={{ background: `url(${login})` }}>
