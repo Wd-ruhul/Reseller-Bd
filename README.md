@@ -9,7 +9,7 @@ adminPassword: 123456
 
 ## Server Link : ` https://github.com/programming-hero-web-course-4/b612-used-products-resale-server-side-Wd-ruhul `
 
-## Live Site Link : `   `
+## Live Site Link : `  https://reselldotcom-c7545.web.app  `
 
 ## Project Feature :
 
